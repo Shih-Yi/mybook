@@ -1,0 +1,15 @@
+<ul>
+  <h1>Mybook system</h1>
+
+  <% @events.each do |event| %>
+    <li>
+      <%= event.bookname %>
+      <%= link_to 'Show', event_path(event)%>
+      <%= link_to 'Edit', edit_event_path(event) %>
+      <%= link_to 'Delete', event_path(event), :method=> :delete %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'New Event', new_event_path %>
+
+<%= paginate @events %>
