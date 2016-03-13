@@ -1,9 +1,22 @@
+<% if @event.errors.any? %>
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<%= f.label :bookname, "Name" %>
-<%= f.text_field :bookname %>
 
-<%= f.label :author, "Author" %>
-<%= f.text_field :author%>
+<div class="form-group">
+  <%= f.label :bookname, "Name" %>
+  <%= f.text_field :bookname, :class=>"form-control" %>
+</div>
 
-<%= f.label :description, "Description" %>
-<%= f.text_area :description %>
+<div class="form-group">
+  <%= f.label :author, "Author" %>
+  <%= f.text_field :author, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description, :class => "form-control"  %>
+</div>

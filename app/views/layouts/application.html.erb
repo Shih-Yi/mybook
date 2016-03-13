@@ -8,6 +8,29 @@
   </head>
   <body>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <% if flash[:notice].present? %>
+            <div class="alert alert-success" role="alert">
+              <%= flash[:notice]%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <% if flash[:alert].present? %>
+            <div class="alert alert-danger" role="alert">
+              <%= flash[:alert]%>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
     <%= yield %>
 
   </body>

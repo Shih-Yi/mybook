@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
+      flash[:notice] = "Book was successfully created"
       redirect_to events_path
     else
       render :action => :new
@@ -30,6 +31,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
+      flash[:notice] = "Book was successfully updated"
       redirect_to event_path(@event)
     else
       render :action => :edit
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-
+    flash[:alert] = "Book was successfully deleted"
     redirect_to events_path 
   end
 
