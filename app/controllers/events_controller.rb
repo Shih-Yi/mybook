@@ -44,6 +44,13 @@ class EventsController < ApplicationController
     redirect_to events_path 
   end
 
+  def search
+    @search_q = params[:q]
+    @events = Event.search @search_q
+
+    respond_with @events
+  end
+
 
   private
 

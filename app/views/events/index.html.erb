@@ -3,10 +3,10 @@
 
   <table class="table">
     <tr>
-      <td><h3>Book name</h3></td>
+      <td><h3>Book Name</h3></td>
       <td><h3>Show Detail</h3></td>
-      <td><h3>Edit Context</h3></td>
-      <td><h3>Delete Item</h3></td>
+      <td><h3>Edit Book</h3></td>
+      <td><h3>Delete Book</h3></td>
     </tr>
     <% @events.each do |event| %>
       <tr>
@@ -27,6 +27,16 @@
 
   </table>
 </ul>
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path %></br>
 
 <%= paginate @events %>
+
+<% content_for :edit do %>
+
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %> 
+
+<% end %>

@@ -1,5 +1,13 @@
 <%=simple_format(@event.bookname) %>
 <%= simple_format(@event.author) %>
 <%= simple_format(@event.description) %>
-
+Created time <%= (@event.created_at) %> 
 <p><%= link_to 'Back to index', events_path %></p>
+
+<div id="comments">
+  <h2><%= @event.comments.count %> Comments</h2>
+  <%= render @event.comments %>
+
+  <h3>Add a comment:</h3>
+  <%= render "comments/form" %>
+</div>
