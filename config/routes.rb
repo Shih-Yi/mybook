@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   get '/events/search' => 'events#search'
   resources :events do
-    resources :commits
+    #resources :commits
+    resources :posts
   end
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

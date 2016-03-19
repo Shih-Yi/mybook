@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
 
   def index
+    @event = Event.new
     @events = Event.page(params[:page]).per(5)
 
   end
@@ -27,6 +28,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+
+    @events = Event.page(params[:page]).per(5)
+    render :index
   end
 
   def update
@@ -41,12 +45,13 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     flash[:alert] = "Book was successfully deleted"
-    redirect_to events_path 
+    redirect_to events_path
   end
 
   def search
     @search_q = params[:q]
-    @events = Event.search @search_q
+    # @events = Event.search @search_q
+    @events = Event.where(:bookname => @search_q)
 
     respond_with @events
   end
@@ -59,7 +64,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:bookname,:author, :description)
+    params.require(:event).permit(:bookname,:author,:description)
   end
 
 
