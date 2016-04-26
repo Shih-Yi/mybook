@@ -4,6 +4,14 @@
 Created time <%= (@event.created_at) %> 
 <p><%= link_to 'Back to index', events_path %></p>
 
+<p><%= link_to 'Give reviews', new_event_review_path(@event) %></p>
+<p class="star-rating" data-score=<%= @avg_rating %>></p>
+<h3>Reviews</h3>
+<% @reviews.each do |r| %>
+  <%= r.comment %>
+  <%= r.rating %>
+<% end %>
+
 <div id="comments">
   <h4><%= @event.posts.count %> Comments</h4>
   <%= render @event.posts %>

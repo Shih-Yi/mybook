@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   get '/events/search' => 'events#search'
+
   resources :events do
+    resources :reviews 
     #resources :commits
     resources :posts
   end
