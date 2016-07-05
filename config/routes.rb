@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :products
+  resources :products do
+    member do
+      post :buy
+      post :cancel
+    end
+  end
 
   get '/events/search' => 'events#search'
 
