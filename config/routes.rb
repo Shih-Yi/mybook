@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders
+
+  namespace :admin do
+    resources :orders
+  end
+
   get '/events/search' => 'events#search'
 
   resources :events do
