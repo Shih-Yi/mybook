@@ -24,6 +24,7 @@
 <table class="table">
   <tr>
     <td><h3>Book Name</h3></td>
+    <td><h3>star</h3></td>
     <td><h3>Show Detail</h3></td>
     <td><h3>Edit Book</h3></td>
     <td><h3>Delete Book</h3></td>
@@ -32,6 +33,9 @@
     <tr>
       <td>
         <%= event.bookname %>
+      </td>
+      <td>
+        <p class="star-rating" data-score=<%= @avg_rating %>></p>
       </td>
       <td>
         <%= link_to 'Show', event_path(event),:class=> "btn btn-default"%>
