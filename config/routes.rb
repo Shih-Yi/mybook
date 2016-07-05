@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+
   get '/events/search' => 'events#search'
+
+  devise_for :users
 
   resources :events do
     resources :reviews 
