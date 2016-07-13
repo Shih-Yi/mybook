@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   before_action :get_cart
 
+  def show
+    @order = current_user.orders.find( params[:id] )
+  end
+
   def new
     @order = Order.new
   end

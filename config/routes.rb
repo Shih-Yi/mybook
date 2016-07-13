@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  post 'pay2go/return'
+  post 'pay2go/notify'
+
   resources :products do
     member do
       post :buy
@@ -22,6 +25,16 @@ Rails.application.routes.draw do
     resources :reviews 
     #resources :commits
     resources :posts
+  end
+
+  resources :orders do
+    member do
+      post :checkout_pay2go
+    end
+
+    collection do
+      post :checkout_pay2go
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
